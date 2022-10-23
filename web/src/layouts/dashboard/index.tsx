@@ -1,6 +1,6 @@
 const Dashboard: React.FC = () => {
     return (
-      <h1>HRE</h1>
+      <h1>Dashboard</h1>
     );
   };
   

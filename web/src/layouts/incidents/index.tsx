@@ -1,6 +1,6 @@
 const Incidents: React.FC = () => {
   return (
-    <h1>Hello</h1>
+    <h1>Incidents</h1>
   );
 };
 
