@@ -146,7 +146,7 @@ const App: React.FC = () => {
             </Grid.Col>
             <Grid.Col span={8} style={{ height: 800 }} className={classes.pageLayout}>
               <Routes>
-                <Route path="/" element={<Dashboard />} />¨
+                <Route path="/" element={<Dashboard />} />
                 <Route path="/profiles" element={<Profiles />} />
                 <Route path="/incidents" element={<Incidents />} />
                 <Route path='/reports' element={<Reports />} />
