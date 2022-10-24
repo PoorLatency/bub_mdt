@@ -1,13 +1,13 @@
 import { Container, createStyles, Grid, SimpleGrid, Skeleton, useMantineTheme } from '@mantine/core';
 import UserRoleTable from './components/UserRoleTable';
+import WarrantTable from './components/WarrantTable';
 
-const PRIMARY_COL_HEIGHT = 700;
+const PRIMARY_COL_HEIGHT = 760;
 
 const useStyles = createStyles((theme) => ({
   container: {
     paddingTop: 25,
     margin: 0,
-    maxWidth: 1050,
   },
 }));
 
@@ -17,10 +17,9 @@ const Dashboard: React.FC = () => {
   const SECONDARY_COL_HEIGHT = PRIMARY_COL_HEIGHT / 2 - theme.spacing.md / 2;
 
   return (
-    <Container my="md" className={classes.container} style={{ width: '97%' }}>
-      <SimpleGrid cols={3} spacing="xl" breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
+    <Container style={{ margin: 0, maxWidth: '100%', padding: '10px', height: '760px' }}>
+      <SimpleGrid cols={3} spacing="xl">
         <UserRoleTable />
-        {/* <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false} /> */}
         <Grid gutter="md">
           <Grid.Col>
             <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
@@ -29,7 +28,8 @@ const Dashboard: React.FC = () => {
             <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" animate={false} />
           </Grid.Col>
         </Grid>
-        <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false}/>
+        <WarrantTable />
+        {/* <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" animate={false}/> */}
       </SimpleGrid>
     </Container>
   );

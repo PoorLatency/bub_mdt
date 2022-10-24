@@ -15,7 +15,8 @@ import {
   IconBriefcase,
   IconLogout,
 } from '@tabler/icons';
-import LSPDLogo from './assets/lspd.png'
+import LSPDLogo from './assets/lspd.png';
+import './App.css';
 
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef('icon');
@@ -114,46 +115,48 @@ const App: React.FC = () => {
   useNuiEvent('toggleVisibility', (value: boolean) => setVisible(value))
 
   return (
-    <Box className={classes.container}>
+    <Box className="container">
       <Transition transition="slide-up" mounted={visible}>
         {(style) => (
-          <Grid justify="center">
-            <Grid.Col span={2} style={{ height: 800, padding: 0,}}>
-              <Navbar p="md" style={{ height: 800, }}> 
-                <Navbar.Section grow>
-                  <Center>
-                    <Image
-                      radius={"md"}
-                      width={180}
-                      height={180}
-                      src={LSPDLogo}
-                      alt="LSPD Logo"
-                    />
-                  </Center>
-                  <Group className={classes.header} position="apart">
-                    <Code sx={{ fontWeight: 700 }}>Officer</Code>
-                  </Group>
-                  {links}
-                </Navbar.Section>
+          <div className='container'>
+            <Grid justify="center">
+              <Grid.Col span={2} style={{ height: 800, padding: 0 }}>
+                <Navbar p="md" style={{ height: 800, }}> 
+                  <Navbar.Section grow>
+                    <Center>
+                      <Image
+                        radius={"md"}
+                        width={180}
+                        height={180}
+                        src={LSPDLogo}
+                        alt="LSPD Logo"
+                      />
+                    </Center>
+                    <Group className={classes.header} position="apart">
+                      <Code sx={{ fontWeight: 700 }}>John Doe</Code>
+                    </Group>
+                    {links}
+                  </Navbar.Section>
 
-                <Navbar.Section className={classes.footer}>
-                  <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
-                    <IconLogout className={classes.linkIcon} stroke={1.5} />
-                    <span>Logout</span>
-                  </a>
-                </Navbar.Section>
-              </Navbar>
-            </Grid.Col>
-            <Grid.Col span={8} style={{ height: 800 }} className={classes.pageLayout}>
-              <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/profiles" element={<Profiles />} />
-                <Route path="/incidents" element={<Incidents />} />
-                <Route path='/reports' element={<Reports />} />
-                <Route path='/evidence' element={<Evidence />} />
-              </Routes>
-            </Grid.Col>
-          </Grid>
+                  <Navbar.Section className={classes.footer}>
+                    <a href="#" className={classes.link} onClick={(event) => event.preventDefault()}>
+                      <IconLogout className={classes.linkIcon} stroke={1.5} />
+                      <span>Logout</span>
+                    </a>
+                  </Navbar.Section>
+                </Navbar>
+              </Grid.Col>
+              <Grid.Col span={8} style={{ height: 800 }} className={classes.pageLayout}>
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/profiles" element={<Profiles />} />
+                  <Route path="/incidents" element={<Incidents />} />
+                  <Route path='/reports' element={<Reports />} />
+                  <Route path='/evidence' element={<Evidence />} />
+                </Routes>
+              </Grid.Col>
+            </Grid>
+          </div>
         )}
       </Transition>
     </Box>
