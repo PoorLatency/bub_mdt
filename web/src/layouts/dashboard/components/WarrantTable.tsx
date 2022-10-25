@@ -6,8 +6,9 @@ import {
     createStyles,
     ScrollArea,
     Table,
+    Menu,
 } from '@mantine/core';
-import { IconChevronRight } from '@tabler/icons';
+import { IconSearch, IconSettings, IconTrash } from '@tabler/icons';
   
 const useStyles = createStyles((theme) => ({
 user: {
@@ -23,30 +24,44 @@ user: {
 },
 }));
 
-const data = [{image: '', name: 'John Doe', reason: 'Reckless Driving'}, {image: '', name: 'John Doe', reason: 'Reckless Driving'}, {image: '', name: 'John Doe', reason: 'Reckless Driving'}]
+const data = [{image: '', name: 'John Doe', reason: 'Reckless Driving', expiresIn: 'expires in 5 days'}, {image: '', name: 'John Doe', reason: 'Reckless Driving', expiresIn: 'expires in 5 days'}, {image: '', name: 'John Doe', reason: 'Reckless Driving', expiresIn: 'expires in 5 days'}]
 
 const WarrantTable: React.FC = () => {
     const { classes } = useStyles();
     const rows = data.map((item) => (
         <tr key={item.name}>
           <td>
-            <UnstyledButton className={classes.user}>
-                    <Group>
-                        <Avatar src={item.image} radius="xl" />
+            <Menu withArrow>
+                <Menu.Target>
+                    <UnstyledButton className={classes.user}>
+                        <Group>
+                            <Avatar src={item.image} radius="xl" />
 
-                        <div style={{ flex: 1 }}>
-                            <Text size="sm" weight={500}>
-                                {item.name}
+                            <div style={{ flex: 1 }}>
+                                <Text size="sm" weight={500}>
+                                    {item.name}
+                                </Text>
+
+                                <Text color="dimmed" size="xs">
+                                    {item.reason}
+                                </Text>
+                            </div>
+
+                            <Text color="dimmed" size="xs" style={{paddingTop: 20}}>
+                                    {item.expiresIn}
                             </Text>
+                        </Group>
+                    </UnstyledButton>
+                </Menu.Target>
+                <Menu.Dropdown>
+                    <Menu.Item icon={<IconSettings size={14} />}>Edit</Menu.Item>
+                    <Menu.Item icon={<IconSearch size={14} />}>Lookup</Menu.Item>
 
-                            <Text color="dimmed" size="xs">
-                                {item.reason}
-                            </Text>
-                        </div>
+                    <Menu.Divider />
 
-                        <IconChevronRight size={14} stroke={1.5} />
-                    </Group>
-                </UnstyledButton>
+                    <Menu.Item color="red" icon={<IconTrash size={14} />}>Delete warrant</Menu.Item>
+                </Menu.Dropdown>
+            </Menu>
           </td>
         </tr>
       ));
@@ -55,9 +70,9 @@ const WarrantTable: React.FC = () => {
         <ScrollArea>
             <Table verticalSpacing="sm">
                 <thead>
-                    <tr>
-                        <th>Warrants</th>
-                    </tr>
+                    <th>
+                        Warrants
+                    </th>
                 </thead>
                 <tbody>
                     {rows}
