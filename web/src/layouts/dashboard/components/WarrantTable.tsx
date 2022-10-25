@@ -11,17 +11,17 @@ import {
 import { IconSearch, IconSettings, IconTrash } from '@tabler/icons';
   
 const useStyles = createStyles((theme) => ({
-user: {
-    display: 'block',
-    width: '100%',
-    height: '90%',
-    padding: theme.spacing.xs,
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+    user: {
+        display: 'block',
+        width: '100%',
+        height: '90%',
+        padding: theme.spacing.xs,
+        color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
 
-    '&:hover': {
-    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+        '&:hover': {
+        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
+        },
     },
-},
 }));
 
 const data = [{image: '', name: 'John Doe', reason: 'Reckless Driving', expiresIn: 'expires in 5 days'}, {image: '', name: 'John Doe', reason: 'Reckless Driving', expiresIn: 'expires in 5 days'}, {image: '', name: 'John Doe', reason: 'Reckless Driving', expiresIn: 'expires in 5 days'}]
